@@ -8,7 +8,7 @@ var COAT_COLORS = [
   'rgb(146, 100, 161)',
   'rgb(56, 159, 117)',
   'rgb(215, 210, 55)',
-  'rgb(0, 0, 0)'
+  'rgb(0, 0, 0)',
 ];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
@@ -16,8 +16,8 @@ var getRandomInt = function (min, max) {
   return Math.floor(Math.random() * (max + 1 - min)) + min;
 };
 
-var getRandomItem = function (item) {
-  return item[getRandomInt(0, item.length - 1)];
+var getRandomItem = function (items) {
+  return items[getRandomInt(0, items.length - 1)];
 };
 
 var getWizardItem = function () {
