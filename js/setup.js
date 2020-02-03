@@ -28,9 +28,6 @@ var getWizardItem = function () {
   };
 };
 
-var dialogSetup = document.querySelector('.setup');
-
-dialogSetup.classList.remove('hidden');
 var wizards = [];
 
 for (var j = 0; j < 4; j++) {
@@ -52,3 +49,36 @@ for (var i = 0; i < 4; i++) {
 similarListElement.appendChild(wizardFragment);
 
 document.querySelector('.setup-similar').classList.remove('hidden');
+
+var setup = document.querySelector('.setup');
+var setupOpen = document.querySelector('.setup-open');
+var setupClose = setup.querySelector('.setup-close');
+var setupOpenIcon = document.querySelector('.setup-open-icon');
+
+setupOpen.addEventListener('click', function () {
+  setup.classList.remove('hidden');
+
+  document.addEventListener('keydown', function (evt) {
+    if (evt.key === 'Escape') {
+      setup.classList.add('hidden');
+    }
+  });
+});
+
+setupClose.addEventListener('click', function () {
+  setup.classList.add('hidden');
+});
+
+setupOpenIcon.addEventListener('keydown', function (evt) {
+  if (evt.key === 'Enter') {
+    setup.classList.remove('hidden');
+  }
+});
+
+setupClose.addEventListener('keydown', function (evt) {
+  if (evt.key === 'Enter') {
+    setup.classList.add('hidden');
+  }
+});
+
+
