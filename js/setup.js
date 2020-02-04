@@ -90,7 +90,7 @@ setupClose.addEventListener('keydown', function (evt) {
     setup.classList.add('hidden');
   }
 });
- 
+
 wizardCoat.addEventListener('click', function () {
   wizardCoat.style.fill = getRandomItem(COAT_COLORS);
   inputCoat.value = getRandomItem(COAT_COLORS);
