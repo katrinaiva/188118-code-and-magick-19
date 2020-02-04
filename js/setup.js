@@ -11,6 +11,7 @@ var COAT_COLORS = [
   'rgb(0, 0, 0)',
 ];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+var FIREBALL_WRAP = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 var getRandomInt = function (min, max) {
   return Math.floor(Math.random() * (max + 1 - min)) + min;
@@ -54,12 +55,21 @@ var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
 var setupOpenIcon = document.querySelector('.setup-open-icon');
+var wizardCoat = setup.querySelector('.wizard-coat');
+var wizardEyes = setup.querySelector('.wizard-eyes');
+var setupFireballWrap = setup.querySelector('.setup-fireball-wrap');
+var inputCoat = setup.querySelector('[name = coat-color]');
+var inputEyes = setup.querySelector('[name = eyes-color]');
+var inputFireball = setup.querySelector('[name = fireball-color]');
+
+var ESC_KEY = 'Escape';
+var ENTER_KEY = 'Enter';
 
 setupOpen.addEventListener('click', function () {
   setup.classList.remove('hidden');
 
   document.addEventListener('keydown', function (evt) {
-    if (evt.key === 'Escape') {
+    if (evt.key === ESC_KEY) {
       setup.classList.add('hidden');
     }
   });
@@ -70,15 +80,28 @@ setupClose.addEventListener('click', function () {
 });
 
 setupOpenIcon.addEventListener('keydown', function (evt) {
-  if (evt.key === 'Enter') {
+  if (evt.key === ENTER_KEY) {
     setup.classList.remove('hidden');
   }
 });
 
 setupClose.addEventListener('keydown', function (evt) {
-  if (evt.key === 'Enter') {
+  if (evt.key === ENTER_KEY) {
     setup.classList.add('hidden');
   }
 });
+ 
+wizardCoat.addEventListener('click', function () {
+  wizardCoat.style.fill = getRandomItem(COAT_COLORS);
+  inputCoat.value = getRandomItem(COAT_COLORS);
+});
 
+wizardEyes.addEventListener('click', function () {
+  wizardEyes.style.fill = getRandomItem(EYES_COLORS);
+  inputEyes.value = getRandomItem(EYES_COLORS);
+});
 
+setupFireballWrap.addEventListener('click', function () {
+  setupFireballWrap.style.backgroundColor = getRandomItem(FIREBALL_WRAP);
+  inputFireball.value = getRandomItem(FIREBALL_WRAP);
+});
