@@ -11,7 +11,7 @@ var COAT_COLORS = [
   'rgb(0, 0, 0)',
 ];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
-var FIREBALL_WRAP = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var FIREBALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 var getRandomInt = function (min, max) {
   return Math.floor(Math.random() * (max + 1 - min)) + min;
@@ -102,6 +102,6 @@ wizardEyes.addEventListener('click', function () {
 });
 
 setupFireballWrap.addEventListener('click', function () {
-  setupFireballWrap.style.backgroundColor = getRandomItem(FIREBALL_WRAP);
-  inputFireball.value = getRandomItem(FIREBALL_WRAP);
+  setupFireballWrap.style.backgroundColor = getRandomItem(FIREBALL_COLOR);
+  inputFireball.value = getRandomItem(FIREBALL_COLOR);
 });
